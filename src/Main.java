@@ -35,18 +35,38 @@ public class Main {
     }
 
     public static void setDayStepsCount(Scanner scanner, StepTracker stepTracker) {
-        System.out.print("Введите месяц (начиная с 0): ");
+        System.out.print("Введите месяц (от 0 до 11): ");
         int month = scanner.nextInt();
-        System.out.print("Введите день (начиная с 0): ");
+
+        while ((month < 0) || (month > 11)) {
+            System.out.println("Введено неверное число");
+            System.out.print("Введите месяц (от 0 до 11): ");
+            month = scanner.nextInt();
+        }
+
+        System.out.print("Введите день (от 0 до 29): ");
         int day = scanner.nextInt();
+
+        while ((day < 0) || (day > 29)) {
+            System.out.println("Введено неверное число");
+            System.out.print("Введите день (от 0 до 29): ");
+            day = scanner.nextInt();
+        }
+
         System.out.print("Введите количество шагов: ");
         int stepCount = scanner.nextInt();
+
+        while (stepCount < 0) {
+            System.out.println("Введено неверное число, количество шагов не может быть отрицательным");
+            System.out.print("Введите количество шагов: ");
+            stepCount = scanner.nextInt();
+        }
 
         stepTracker.saveDayStepsCount(month, day, stepCount);
     }
 
     public static void printStatistic(Scanner scanner, StepTracker stepTracker, Converter converter) {
-        System.out.print("Введите месяц (начиная с 0): ");
+        System.out.print("Введите месяц (от 0 до 11): ");
         int monthIndex = scanner.nextInt();
         int[] month = stepTracker.months[monthIndex];
 
