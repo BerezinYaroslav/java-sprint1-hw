@@ -34,7 +34,7 @@ public class StepTracker {
 
     public int findAverageStepsCount(int[] month) {
         int monthStepsCount = findMonthStepsCount(month);
-        return monthStepsCount / 30;
+        return monthStepsCount / month.length;
     }
 
     public int findTheBestSeries(int[] month) {
