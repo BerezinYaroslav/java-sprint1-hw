@@ -1,9 +1,19 @@
+import java.util.Random;
+
 public class StepTracker {
     int stepsCountGoal = 10000;
     int[][] months = new int[12][30];
 
     public void changeStepsCountGoal(int newStepsCountGoal) {
         stepsCountGoal = newStepsCountGoal;
+    }
+
+    public void fillArrayWithRandomNumbers(Random random) {
+        for (int i = 0; i < months.length; i++) {
+            for (int j = 0; j < months[i].length; j++) {
+                months[i][j] = random.nextInt(20000);
+            }
+        }
     }
 
     public void saveDayStepsCount(int monthNumber, int dayNumber, int stepsCount) {

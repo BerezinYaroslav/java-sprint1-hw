@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -5,8 +6,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker();
         Converter converter = new Converter();
+        Random random = new Random();
 
         while (true) {
+            stepTracker.fillArrayWithRandomNumbers(random);
+
             printMenu(stepTracker.stepsCountGoal);
             int command = scanner.nextInt();
 
@@ -81,6 +85,7 @@ public class Main {
             System.out.print(i + " день: " + month[i] + ", ");
         }
 
+        System.out.println();
         System.out.println(
                 "Общее количество шагов за месяц: " + stepTracker.findMonthStepsCount(month)
         );
