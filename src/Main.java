@@ -10,16 +10,21 @@ public class Main {
             printMenu(stepTracker.stepsCountGoal);
             int command = scanner.nextInt();
 
-            if (command == 0) {
-                return;
-            } else if (command == 1) {
-                setDayStepsCount(scanner, stepTracker);
-            } else if (command == 2) {
-                printStatistic(scanner, stepTracker, converter);
-            } else if (command == 3) {
-                setNewStepsCountGoal(scanner, stepTracker);
-            } else {
-                System.out.println("Такой команды нет, попробуйте снова");
+            switch (command) {
+                case 0:
+                    return;
+                case 1:
+                    setDayStepsCount(scanner, stepTracker);
+                    break;
+                case 2:
+                    printStatistic(scanner, stepTracker, converter);
+                    break;
+                case 3:
+                    setNewStepsCountGoal(scanner, stepTracker);
+                    break;
+                default:
+                    System.out.println("Такой команды нет, попробуйте снова");
+                    break;
             }
 
             System.out.println();
